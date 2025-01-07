@@ -1,0 +1,681 @@
+{
+	"info": {
+		"_postman_id": "b187d75d-078e-4ee5-a2c8-051176d3f956",
+		"name": "Anime Catalog API",
+		"description": "Complete collection for the Anime Catalog API including Auth, Anime, Episodes, Genres, and Studios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36789593",
+		"_collection_link": "https://universal-spaceship-182321.postman.co/workspace/Team-Workspace~240d29b1-3518-464e-8b79-8f8d9879a046/collection/36789593-b187d75d-078e-4ee5-a2c8-051176d3f956?action=share&source=collection_link&creator=36789593"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user@example.com\",\n    \"username\": \"testuser123\",\n    \"password\": \"password123456\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user@example.com\",\n    \"password\": \"password123456\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Genres",
+			"item": [
+				{
+					"name": "Get All Genres",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/genres",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Genre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/genres/{{genreId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"genres",
+								"{{genreId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Genre",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Action\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/genres",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Genre",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Updated Action\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/genres/{{genreId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"genres",
+								"{{genreId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Genre",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/genres/{{genreId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"genres",
+								"{{genreId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Studios",
+			"item": [
+				{
+					"name": "Get All Studios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/studios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"studios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Studio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/studios/{{studioId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"studios",
+								"{{studioId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Studio",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Studio Ghibli\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/studios",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"studios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Studio",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Updated Studio Ghibli\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/studios/{{studioId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"studios",
+								"{{studioId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Studio",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/studios/{{studioId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"studios",
+								"{{studioId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Anime",
+			"item": [
+				{
+					"name": "Get All Anime",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/anime",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"anime"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Anime",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/anime/{{animeId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"anime",
+								"{{animeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Anime",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{AUTH TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "My Anime Title",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "An amazing anime series",
+									"type": "text"
+								},
+								{
+									"key": "releaseDate",
+									"value": "2024",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "Ongoing",
+									"type": "text"
+								},
+								{
+									"key": "studio",
+									"value": "677cfa11957c70cad9a12b37",
+									"type": "text"
+								},
+								{
+									"key": "genres",
+									"value": "[\"677cfa11957c70cad9a12b37\"]",
+									"type": "text"
+								},
+								{
+									"key": "trailerUrl",
+									"value": "https://youtube.com/trailer",
+									"type": "text"
+								},
+								{
+									"key": "poster",
+									"type": "file",
+									"src": "/C:/Users/PC/Desktop/photo_2025-01-03_18-55-32.jpg"
+								},
+								{
+									"key": "cover",
+									"type": "file",
+									"src": "/C:/Users/PC/Desktop/photo_2025-01-03_18-55-32.jpg"
+								},
+								{
+									"key": "logo",
+									"type": "file",
+									"src": "/C:/Users/PC/Desktop/paragon-logo.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/anime",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"anime"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Anime",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Updated Anime Title",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Updated description",
+									"type": "text"
+								},
+								{
+									"key": "poster",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "cover",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "logo",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/anime/{{animeId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"anime",
+								"{{animeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Anime",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/anime/{{animeId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"anime",
+								"{{animeId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Episodes",
+			"item": [
+				{
+					"name": "Create Episode",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Episode 1",
+									"type": "text"
+								},
+								{
+									"key": "episodeNumber",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "animeId",
+									"value": "{{animeId}}",
+									"type": "text"
+								},
+								{
+									"key": "video",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/episodes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"episodes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Bulk Episodes",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"title\": \"Episode 1\",\n        \"episodeNumber\": \"1\",\n        \"animeId\": \"{{animeId}}\"\n    },\n    {\n        \"title\": \"Episode 2\",\n        \"episodeNumber\": \"2\",\n        \"animeId\": \"{{animeId}}\"\n    }\n]"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/episodes/bulk",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"episodes",
+								"bulk"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Episode Video",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "video",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/episodes/{{episodeId}}/upload-video",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"episodes",
+								"{{episodeId}}",
+								"upload-video"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000"
+		},
+		{
+			"key": "AUTH TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzdjZjI2ZmYwNTI5ZGU1ZjAwZjViYWQiLCJpYXQiOjE3MzYyNDM1NjZ9.Lzv4R4UU8OBuF9ZwoFTrj8ZcUCLwmzv-H_h02UBdFnk"
+		}
+	]
+}
