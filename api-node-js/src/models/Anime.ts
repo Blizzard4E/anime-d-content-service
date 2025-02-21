@@ -1,4 +1,10 @@
+// models/Anime.ts
 import mongoose from 'mongoose';
+
+export enum AnimeStatus {
+  ONGOING = 'ongoing',
+  COMPLETED = 'completed',
+}
 
 const animeSchema = new mongoose.Schema(
   {
@@ -10,9 +16,13 @@ const animeSchema = new mongoose.Schema(
     studio: { type: mongoose.Schema.Types.ObjectId, ref: 'Studio', required: true },
     description: { type: String, required: true },
     releaseDate: { type: String, required: true },
-    episodes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Episode' }],
+    status: {
+      type: String,
+      required: true,
+      enum: Object.values(AnimeStatus),
+    },
     trailerUrl: { type: String, required: true },
-    status: { type: String, required: true },
+    episodes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Episode' }],
   },
   { timestamps: true },
 );

@@ -9,7 +9,7 @@ const router = Router();
 router.get('/', genreController.getGenres);
 router.get('/:id', genreController.getGenre);
 
-// Protected routes
+// Protected routes that require authentication
 router.post('/', auth, genreController.createGenre);
 router.put('/:id', auth, genreController.updateGenre);
 router.delete('/:id', auth, genreController.deleteGenre);
