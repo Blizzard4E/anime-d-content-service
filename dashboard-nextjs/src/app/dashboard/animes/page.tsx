@@ -66,7 +66,15 @@ export default function Page() {
 
     return (
         <div>
-            <h1 className="font-bold text-3xl">Animes</h1>
+            <div className="flex justify-between">
+                <h1 className="font-bold text-3xl">Animes</h1>
+                <a
+                    href="/dashboard/animes/create"
+                    className="bg-blue-600 text-white px-4 py-2"
+                >
+                    Create Anime
+                </a>
+            </div>
             <ul>
                 {animes.map((anime, i) => (
                     <li
