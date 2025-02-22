@@ -52,7 +52,7 @@ const ContentManagementPage = () => {
                         variant="contained"
                         color="success"
                         startIcon={<AddCircleOutlineOutlinedIcon />}
-                        onClick={() => handleToggleAnimeDialog()}
+                        onClick={() => router.push("/dashboard/animes")}
                         sx={{
                             borderRadius: "16px",
                             fontWeight: "bold",
@@ -113,30 +113,6 @@ const ContentManagementPage = () => {
                     <AnimeListTable />
                 </div>
             </div>
-            <Dialog
-                fullWidth
-                maxWidth="md"
-                open={openAnimeDialog}
-                onClose={handleToggleAnimeDialog}
-            >
-                <DialogTitle>
-                    <Box
-                        display="flex"
-                        justifyContent="space-between"
-                        alignItems="center"
-                    >
-                        <Typography variant="h6">
-                            Add New Anime Content
-                        </Typography>
-                        <IconButton onClick={() => handleToggleAnimeDialog()}>
-                            <CloseIcon />
-                        </IconButton>
-                    </Box>
-                </DialogTitle>
-                <DialogContent>
-                    <AnimeForm onClose={handleToggleAnimeDialog} />
-                </DialogContent>
-            </Dialog>
         </Box>
     );
 };
