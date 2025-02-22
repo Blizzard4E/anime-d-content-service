@@ -19,10 +19,8 @@ import {
 } from "@mui/material";
 import GenreListTable from "@/components/Table/Variants/GenreListTable";
 import StudioListTable from "@/components/Table/Variants/StudioListTable";
-import { useRouter } from "next/navigation";
 
 const ContentManagementPage = () => {
-    const router = useRouter();
     const [openAnimeDialog, setOpenAnimeDialog] = useState(false);
     const [openViewStudioDialog, setOpenViewStudioDialog] = useState(false);
     const [openViewGenreDialog, setOpenViewGenreDialog] = useState(false);
@@ -83,7 +81,7 @@ const ContentManagementPage = () => {
                         variant="contained"
                         color="info"
                         startIcon={<LibraryBooksOutlinedIcon />}
-                        onClick={() => router.push("/dashboard/studios")}
+                        onClick={() => handleToggleViewStudioDialog()}
                         sx={{
                             borderRadius: "16px",
                             fontWeight: "bold",
@@ -102,7 +100,7 @@ const ContentManagementPage = () => {
                         variant="contained"
                         color="info"
                         startIcon={<CollectionsBookmarkOutlinedIcon />}
-                        onClick={() => router.push("/dashboard/genres")}
+                        onClick={() => handleToggleViewGenreDialog()}
                         sx={{
                             borderRadius: "16px",
                             fontWeight: "bold",
@@ -147,6 +145,50 @@ const ContentManagementPage = () => {
                 </DialogTitle>
                 <DialogContent>
                     <AnimeForm onClose={handleToggleAnimeDialog} />
+                </DialogContent>
+            </Dialog>
+            <Dialog
+                fullWidth
+                maxWidth="md"
+                open={openViewStudioDialog}
+                onClose={handleToggleViewStudioDialog}
+            >
+                <DialogTitle>
+                    <Box
+                        display="flex"
+                        justifyContent="space-between"
+                        alignItems="center"
+                    >
+                        <Typography variant="h6">Studio List</Typography>
+                        <IconButton onClick={handleToggleViewStudioDialog}>
+                            <CloseIcon />
+                        </IconButton>
+                    </Box>
+                </DialogTitle>
+                <DialogContent>
+                    <StudioListTable />
+                </DialogContent>
+            </Dialog>
+            <Dialog
+                fullWidth
+                maxWidth="md"
+                open={openViewGenreDialog}
+                onClose={handleToggleViewGenreDialog}
+            >
+                <DialogTitle>
+                    <Box
+                        display="flex"
+                        justifyContent="space-between"
+                        alignItems="center"
+                    >
+                        <Typography variant="h6">Genre List</Typography>
+                        <IconButton onClick={handleToggleViewGenreDialog}>
+                            <CloseIcon />
+                        </IconButton>
+                    </Box>
+                </DialogTitle>
+                <DialogContent>
+                    <GenreListTable />
                 </DialogContent>
             </Dialog>
         </Box>
