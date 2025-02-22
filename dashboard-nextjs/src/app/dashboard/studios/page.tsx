@@ -21,7 +21,10 @@ export default function Page() {
                 process.env.NEXT_PUBLIC_API_URL + "/studios"
             );
             const result = await response.json();
-            setStudios(result.data);
+
+            if (result.data) {
+                setStudios(result.data);
+            }
         }
         getStudios();
     }, []);
