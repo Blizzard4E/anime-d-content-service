@@ -48,7 +48,9 @@ export default function Page() {
 
     return (
         <div>
-            <h1 className="font-bold text-3xl">Genres</h1>
+            <h1 className="font-bold text-3xl">
+                Genres {process.env.NEXT_PUBLIC_API_URL}
+            </h1>
             <ul>
                 {genres.map((genre, i) => (
                     <li key={i} className="text-lg">
