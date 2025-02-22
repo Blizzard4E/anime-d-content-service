@@ -21,7 +21,10 @@ export default function Page() {
                 process.env.NEXT_PUBLIC_API_URL + "/genres"
             );
             const result = await response.json();
-            setGenres(result.data);
+            console.log(result);
+            if (result.data) {
+                setGenres(result.data);
+            }
         }
         getGenres();
     }, []);
